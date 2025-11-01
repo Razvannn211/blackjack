@@ -1,0 +1,61 @@
+body {
+  background-color: #006400;
+  color: white;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.cards {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.card {
+  width: 80px;
+  height: 120px;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+.hidden {
+  display: none;
+}
+.hidden-card {
+  background-color: rgb(5, 111, 231);
+  border: 2px solid #000;
+  color: transparent;
+  box-shadow: 0 0 5px black;
+}
+.sum {
+  margin-top: 90px;
+  font-size: larger;
+  font-weight: 600;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+button {
+  margin-top: 20px;
+  border: 2px solid black;
+  padding: 4px 2px 4px 2px;
+  background-color: rgb(37, 37, 37);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.2);
+}
