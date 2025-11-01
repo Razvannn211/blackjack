@@ -8,8 +8,12 @@
   </head>
   <body>
     <h1>Blackjack</h1>
-
-    <div class="table">
+    <div class="start">
+      <h1>Bine ai venit la blackjack!</h1>
+      <h2>Apasa pe start pentru a incepe</h2>
+      <button class="start-btn">Start</button>
+    </div>
+    <div class="table hidden">
       <div class="dealer">
         <h2>Dealer</h2>
         <div id="dealer-cards" class="cards"></div>
@@ -21,11 +25,11 @@
         <div id="player-cards" class="cards"></div>
         <span class="sum" id="playerSum"></span>
       </div>
-    </div>
 
-    <div class="controls">
-      <button id="btnHit">Hit</button>
-      <button id="btnStand">Stand</button>
+      <div class="controls">
+        <button id="btnHit">Hit</button>
+        <button id="btnStand">Stand</button>
+      </div>
     </div>
     <div class="message">
       <h1 id="winner"></h1>

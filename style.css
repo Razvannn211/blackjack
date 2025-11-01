@@ -4,7 +4,9 @@ body {
   text-align: center;
   font-family: Arial, sans-serif;
 }
-
+.start {
+  flex-direction: row;
+}
 .table {
   display: flex;
   flex-direction: column;
@@ -58,4 +60,7 @@ button {
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.2);
+}
+.start-btn {
+  background: linear-gradient(180deg, hsl(185 100% 43.9%), hsl(218 100% 43.9%));
 }

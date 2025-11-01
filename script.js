@@ -26,6 +26,8 @@ let dealerAces;
 let dealerCardCnt;
 let playerCardCnt;
 
+const startBtn = document.querySelector(".start-btn");
+const startMenu = document.querySelector(".start");
 const cardGive = new Audio("sounds/cardflip.mp3");
 const HitBtn = document.getElementById("btnHit");
 const StandBtn = document.getElementById("btnStand");
@@ -34,6 +36,16 @@ const playerSumD = document.getElementById("playerSum");
 const winner = document.getElementById("winner");
 const playAgainBtn = document.getElementById("play-again");
 
+
+function hideStartMenu() {
+  startMenu.classList.add("hidden");
+  const table = document.querySelector(".table");
+  table.classList.remove("hidden");
+}
+startBtn.addEventListener("click", () =>{
+  hideStartMenu();
+  play();
+})
 function creeazaPachet() {
   deck = [];
   for (let semn of semne) {
@@ -110,12 +122,12 @@ function playerTrage() {
   let rezultat = adjAces(playerSum, playerAces);
   playerSum = rezultat.sum;
   playerAces = rezultat.aces;
-
   playerSumD.textContent = playerSum;
   if (playerSum > 21) {
     StandBtn.disabled = true;
     HitBtn.disabled = true;
     winner.textContent = "Ai pierdut!";
+    winner.style.color = "#e00000";
     playAgainBtn.classList.remove("hidden");
   }
   if (playerSum == 21) {
@@ -147,33 +159,26 @@ async function stand() {
   // Dealer trage până la 17
   while (dealerSum < 17) {
     dealerTrage();
-    cardGive.play;
+    cardGive.play();
     await asteapta(800);
   }
 
   if (dealerSum > 21) {
+    winner.style.color = "#16e000";
     winner.textContent = "Ai câștigat!";
   } else if (dealerSum > playerSum) {
+    winner.style.color = "#e00000";
     winner.textContent = "Ai pierdut!";
   } else if (dealerSum === playerSum) {
     winner.textContent = "Egalitate!";
   } else {
+    winner.style.color="#16e000";
     winner.textContent = "Ai câștigat!";
   }
 
   playAgainBtn.classList.remove("hidden");
 }
 
-// Inițializare joc
-creeazaPachet();
-amestecaPachet();
-
-// Dealer primește prima carte vizibilă
-dealerTrage();
-
-// Dealer primește a doua carte ascunsă
-hiddenCard = trageCarte();
-afiseazaCarte("dealer-cards", hiddenCard, true);
 async function playerStart() {
   cardGive.play();
   playerTrage();
@@ -182,9 +187,11 @@ async function playerStart() {
   cardGive.play();
   await asteapta(800);
 }
-playerStart();
+
 HitBtn.addEventListener("click", () => {
+  asteapta(800);
   playerTrage();
+  cardGive.play();
 });
 StandBtn.addEventListener("click", () => {
   stand();
@@ -205,3 +212,16 @@ playAgainBtn.addEventListener("click", () => {
   HitBtn.disabled = false;
   winner.textContent = "";
 });
+function play() {
+  // Inițializare joc
+creeazaPachet();
+amestecaPachet();
+
+// Dealer primește prima carte vizibilă
+dealerTrage();
+
+// Dealer primește a doua carte ascunsă
+hiddenCard = trageCarte();
+afiseazaCarte("dealer-cards", hiddenCard, true);
+playerStart();
+}
