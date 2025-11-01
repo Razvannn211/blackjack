@@ -36,16 +36,15 @@ const playerSumD = document.getElementById("playerSum");
 const winner = document.getElementById("winner");
 const playAgainBtn = document.getElementById("play-again");
 
-
 function hideStartMenu() {
   startMenu.classList.add("hidden");
   const table = document.querySelector(".table");
   table.classList.remove("hidden");
 }
-startBtn.addEventListener("click", () =>{
+startBtn.addEventListener("click", () => {
   hideStartMenu();
   play();
-})
+});
 function creeazaPachet() {
   deck = [];
   for (let semn of semne) {
@@ -172,7 +171,7 @@ async function stand() {
   } else if (dealerSum === playerSum) {
     winner.textContent = "Egalitate!";
   } else {
-    winner.style.color="#16e000";
+    winner.style.color = "#16e000";
     winner.textContent = "Ai câștigat!";
   }
 
@@ -214,14 +213,14 @@ playAgainBtn.addEventListener("click", () => {
 });
 function play() {
   // Inițializare joc
-creeazaPachet();
-amestecaPachet();
+  creeazaPachet();
+  amestecaPachet();
 
-// Dealer primește prima carte vizibilă
-dealerTrage();
+  // Dealer primește prima carte vizibilă
+  dealerTrage();
 
-// Dealer primește a doua carte ascunsă
-hiddenCard = trageCarte();
-afiseazaCarte("dealer-cards", hiddenCard, true);
-playerStart();
+  // Dealer primește a doua carte ascunsă
+  hiddenCard = trageCarte();
+  afiseazaCarte("dealer-cards", hiddenCard, true);
+  playerStart();
 }
