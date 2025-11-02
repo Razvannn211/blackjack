@@ -7,6 +7,10 @@ body {
 .start {
   flex-direction: row;
 }
+#titlu-constant {
+  font-weight: 600;
+  font-size: 40px;
+}
 .table {
   display: flex;
   flex-direction: column;
@@ -62,5 +66,11 @@ button {
   box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.2);
 }
 .start-btn {
+  width: 100px;
+  height: 100px;
+  font-size: 24px;
+  margin-top: 70px;
+  font-weight: 600;
+  word-spacing: 2000%;
   background: linear-gradient(180deg, hsl(185 100% 43.9%), hsl(218 100% 43.9%));
 }

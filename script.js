@@ -28,6 +28,10 @@ let playerCardCnt;
 
 const startBtn = document.querySelector(".start-btn");
 const startMenu = document.querySelector(".start");
+
+const drawSound = new Audio ("sounds/draw.mp3")
+const loseSound = new Audio ("sounds/lose.mp3");
+const winSound = new Audio("sounds/win.mp3");
 const cardGive = new Audio("sounds/cardflip.mp3");
 const HitBtn = document.getElementById("btnHit");
 const StandBtn = document.getElementById("btnStand");
@@ -125,6 +129,7 @@ function playerTrage() {
   if (playerSum > 21) {
     StandBtn.disabled = true;
     HitBtn.disabled = true;
+    loseSound.play();
     winner.textContent = "Ai pierdut!";
     winner.style.color = "#e00000";
     playAgainBtn.classList.remove("hidden");
@@ -163,14 +168,18 @@ async function stand() {
   }
 
   if (dealerSum > 21) {
+    winSound.play();
     winner.style.color = "#16e000";
     winner.textContent = "Ai câștigat!";
   } else if (dealerSum > playerSum) {
+    loseSound.play();
     winner.style.color = "#e00000";
     winner.textContent = "Ai pierdut!";
   } else if (dealerSum === playerSum) {
+    drawSound.play();
     winner.textContent = "Egalitate!";
   } else {
+    winSound.play();
     winner.style.color = "#16e000";
     winner.textContent = "Ai câștigat!";
   }
